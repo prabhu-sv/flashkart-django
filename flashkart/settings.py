@@ -12,10 +12,14 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 from pathlib import Path
 import os
-import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+
+try:
+    import dj_database_url
+except ImportError:
+    dj_database_url = None
 
 
 # Quick-start development settings - unsuitable for production
@@ -89,7 +93,7 @@ DATABASES = {
 }
 
 # Use PostgreSQL in production
-if 'DATABASE_URL' in os.environ:
+if dj_database_url and 'DATABASE_URL' in os.environ:
     DATABASES['default'] = dj_database_url.config(
         conn_max_age=600,
         conn_health_checks=True,
