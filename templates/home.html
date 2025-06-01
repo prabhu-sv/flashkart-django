@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<!-- Hero Section -->
+<section class="section-intro padding-y-sm">
+    <div class="container">
+        <div class="intro-banner-wrap position-relative">
+            <img src="{%static 'images/banners/banner1.jpg'%}" class="img-fluid rounded shadow-lg" alt="FlashKart Banner">
+            <div class="position-absolute top-50 start-50 translate-middle text-center text-white">
+                <h1 class="display-4 fw-bold">Welcome to FlashKart</h1>
+                <p class="lead">Discover amazing products at unbeatable prices</p>
+                <a href="{% url 'store' %}" class="btn btn-primary btn-lg">Shop Now</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Popular Products Section -->
+<section class="section-name padding-y-sm">
+    <div class="container py-5">
+        <header class="section-heading d-flex justify-content-between align-items-center">
+            <h3 class="section-title">Popular Products</h3>
+            <a href="{% url 'store' %}" class="btn btn-outline-primary">View All Products</a>
+        </header>
+
+        <div class="row g-4">
+            {% for product in products %}
+            <div class="col-md-3">
+                <div class="card h-100">
+                    <a href="{{ product.get_url }}" class="img-wrap">
+                        <img src="{{product.images.url}}" class="card-img-top" alt="{{product.product_name}}">
+                    </a>
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            <a href="{{ product.get_url }}" class="text-decoration-none text-dark">{{product.product_name}}</a>
+                        </h5>
+                        <div class="price mt-2 fw-bold text-primary">₹{{product.price}}</div>
+                        <a href="{{ product.get_url }}" class="btn btn-outline-primary w-100 mt-3">View Details</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- Features Section -->
+<section class="py-5" style="background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);">
+    <div class="container">
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="text-center">
+                    <i class="fas fa-truck fa-3x text-primary mb-3"></i>
+                    <h4>Free Shipping</h4>
+                    <p class="text-muted">On orders over ₹1000</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="text-center">
+                    <i class="fas fa-undo fa-3x text-primary mb-3"></i>
+                    <h4>Easy Returns</h4>
+                    <p class="text-muted">30 days return policy</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="text-center">
+                    <i class="fas fa-lock fa-3x text-primary mb-3"></i>
+                    <h4>Secure Payment</h4>
+                    <p class="text-muted">100% secure checkout</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,78 @@
+{% load static %}
+
+<header class="section-header">
+    <nav class="navbar p-md-0 navbar-expand-sm navbar-light border-bottom">
+    <div class="container">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTop4" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarTop4">
+      </div>
+    </div>
+    </nav>
+    
+    <section class="header-main border-bottom">
+        <div class="container">
+            <!-- Top line: English, USD, Email, Call us -->
+            <div class="row py-2 border-bottom">
+                <div class="col-12 d-flex justify-content-end">
+                    <a href="#" class="nav-link d-inline-block me-3 text-muted"> English </a>
+                    <a href="#" class="nav-link d-inline-block me-3 text-muted"> USD </a>
+                    <a href="#" class="nav-link d-inline-block me-3 text-muted"> <i class="fa fa-envelope"></i> Email </a>
+                    <a href="#" class="nav-link d-inline-block text-muted"> <i class="fa fa-phone"></i> Call us </a>
+                </div>
+            </div>
+            
+            <!-- Main line: Logo, Category, Store, Search, Sign in -->
+            <div class="row align-items-center py-3">
+                <div class="col-lg-2 col-md-3 col-6">
+                    <a href="{% url 'home' %}" class="brand-wrap">
+                        <img class="logo" src="{%static 'images/logo/logo.png'%}">
+                    </a>
+                </div>
+                <div class="col-lg col-sm col-md col-6 flex-grow-0">
+                    <div class="category-wrap dropdown d-inline-block float-end">
+                        <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown"> 
+                            <i class="fa fa-bars"></i> All category 
+                        </button>
+                        <div class="dropdown-menu">
+                            <a href="{% url 'store'%}"> All Products </a>
+                            {% for category in links %}
+                                <a class="dropdown-item" href="{{category.get_url}}">{{category.category_name}} </a>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+                <a href="{% url 'store' %}" class="btn btn-outline-primary">Store</a>
+                <div class="col-lg col-md-6 col-sm-12 col">
+                    <form action="{% url 'search' %}" class="search" method=GET>
+                        <div class="input-group w-100">
+                            <input type="text" class="form-control" style="width:60%;" placeholder="Search" name="keyword">
+                            
+                            <div class="input-group-append">
+                              <button class="btn btn-primary" type="submit">
+                                <i class="fa fa-search"></i>
+                              </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-lg-3 col-sm-6 col-8 order-2 order-lg-3">
+                    <div class="d-flex align-items-center justify-content-end">
+                        <div class="widget-header">
+                            <small class="title text-muted">Welcome guest!</small>
+                            <div> 
+                                <a href="./signin.html" class="text-decoration-none">Sign in</a> <span class="dark-transp"> | </span>
+                                <a href="./register.html" class="text-decoration-none"> Register</a>
+                            </div>
+                        </div>
+                        <a href="{%url 'cart'%}" class="widget-header ps-5 ms-5 me-4" style="margin-left: 4rem !important;">
+                            <div class="icon icon-sm rounded-circle border"><i class="fa fa-shopping-cart"></i></div>
+                            <span class="badge badge-pill badge-danger notify">{{cart_count}}</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</header>

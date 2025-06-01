@@ -1,0 +1,204 @@
+{% load static %}
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="pragma" content="no-cache" />
+<meta http-equiv="cache-control" content="max-age=604800" />
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<title>FlashKart | One of the Biggest Online Shopping Platform</title>
+
+<link href="{% static 'images/favicon.ico' %}" rel="shortcut icon" type="image/x-icon">
+
+<!-- jQuery -->
+<script src="{% static 'js/jquery-2.0.0.min.js' %}" type="text/javascript"></script>
+
+<!-- Bootstrap5 files-->
+<script src="{%static 'js/bootstrap.bundle.min.js'%}" type="text/javascript"></script>
+<link href="{%static 'css/bootstrap.css'%}" rel="stylesheet" type="text/css"/>
+
+<!-- Font awesome 6 -->
+<link href="{% static 'fonts/fontawesome/css/all.min.css'%}" type="text/css" rel="stylesheet">
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<!-- custom style -->
+<link href="{%static 'css/ui.css'%}" rel="stylesheet" type="text/css"/>
+<link href="{%static 'css/responsive.css'%}" rel="stylesheet" media="only screen and (max-width: 1200px)" />
+<link href="{%static 'css/custom.css'%}" rel="stylesheet" type="text/css"/>
+
+<style>
+    :root {
+        /* Modern Color Palette */
+        --primary-color: #6366f1;      /* Indigo */
+        --primary-dark: #4f46e5;       /* Darker Indigo */
+        --secondary-color: #8b5cf6;    /* Purple */
+        --accent-color: #ec4899;       /* Pink */
+        --success-color: #10b981;      /* Emerald */
+        --warning-color: #f59e0b;      /* Amber */
+        --danger-color: #ef4444;       /* Red */
+        --text-color: #1f2937;         /* Dark Gray */
+        --text-light: #6b7280;         /* Medium Gray */
+        --bg-light: #f9fafb;           /* Light Gray */
+        --white: #ffffff;
+    }
+
+    body {
+        font-family: 'Poppins', sans-serif;
+        color: var(--text-color);
+        line-height: 1.6;
+        background-color: var(--bg-light);
+    }
+
+    /* Button Styles */
+    .btn-primary {
+        background-color: var(--primary-color);
+        border-color: var(--primary-color);
+        transition: all 0.3s ease;
+    }
+
+    .btn-primary:hover {
+        background-color: var(--primary-dark);
+        border-color: var(--primary-dark);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 6px rgba(99, 102, 241, 0.2);
+    }
+
+    .btn-outline-primary {
+        color: var(--primary-color);
+        border-color: var(--primary-color);
+        transition: all 0.3s ease;
+    }
+
+    .btn-outline-primary:hover {
+        background-color: var(--primary-color);
+        border-color: var(--primary-color);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 6px rgba(99, 102, 241, 0.2);
+    }
+
+    /* Card Styles */
+    .card {
+        border: none;
+        border-radius: 12px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        transition: all 0.3s ease;
+        background: var(--white);
+    }
+
+    .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .card-img-top {
+        border-top-left-radius: 12px;
+        border-top-right-radius: 12px;
+    }
+
+    /* Section Styles */
+    .section-heading {
+        margin-bottom: 2.5rem;
+    }
+
+    .section-title {
+        font-weight: 600;
+        color: var(--text-color);
+        position: relative;
+        padding-bottom: 10px;
+    }
+
+    .section-title::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 50px;
+        height: 3px;
+        background: var(--primary-color);
+        border-radius: 2px;
+    }
+
+    /* Price Styles */
+    .price {
+        color: var(--primary-color);
+        font-size: 1.25rem;
+        font-weight: 600;
+    }
+
+    /* Feature Icons */
+    .feature-icon {
+        color: var(--primary-color);
+        transition: all 0.3s ease;
+    }
+
+    .feature-icon:hover {
+        transform: scale(1.1);
+        color: var(--primary-dark);
+    }
+
+    /* Navigation */
+    .navbar {
+        background-color: var(--white);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    }
+
+    .navbar-brand {
+        color: var(--primary-color) !important;
+        font-weight: 600;
+    }
+
+    /* Hero Section */
+    .hero-section {
+        background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+        color: var(--white);
+        padding: 4rem 0;
+        border-radius: 0 0 30px 30px;
+    }
+
+    /* Footer */
+    footer {
+        background-color: var(--text-color);
+        color: var(--white);
+        padding: 3rem 0;
+    }
+
+    /* Custom Animations */
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    .animate-fade-in {
+        animation: fadeIn 0.5s ease-out forwards;
+    }
+</style>
+
+<!-- custom javascript -->
+<script src="{%static 'js/script.js'%}" type="text/javascript"></script>
+
+<script type="text/javascript">
+/// some script
+
+// jquery ready start
+$(document).ready(function() {
+	// jQuery code
+
+}); 
+// jquery end
+</script>
+
+</head>
+<body>
+
+
+{% include "includes/navbar.html" %}
+
+<main class="py-4">
+    {% block content %}
+    {% endblock content %}
+</main>
+
+{% include "includes/footer.html" %}
