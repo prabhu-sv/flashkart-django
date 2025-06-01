@@ -101,6 +101,12 @@ if 'DATABASE_URL' in os.environ:
         conn_health_checks=True,
     )
 
+# Session settings
+SESSION_ENGINE = 'django.contrib.sessions.backends.db'
+SESSION_COOKIE_AGE = 1209600  # 2 weeks in seconds
+SESSION_COOKIE_SECURE = True
+SESSION_COOKIE_HTTPONLY = True
+
 # Security settings for production
 if 'DATABASE_URL' in os.environ:
     SECURE_SSL_REDIRECT = True
